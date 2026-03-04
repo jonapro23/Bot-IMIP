@@ -1,9 +1,13 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from models import db
 import os
 
 
 app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template("homepage.html")
 
 # Configuração do Banco de Dados
 basedir = os.path.abspath(os.path.dirname(__file__))
